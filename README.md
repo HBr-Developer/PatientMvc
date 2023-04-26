@@ -28,7 +28,6 @@ Activité Pratique N°4 : Spring Security 6 avec Thymeleaf
 ![3](https://user-images.githubusercontent.com/80393682/234694014-db5e8ade-7459-4326-8108-255dd1bb38e3.PNG)
 
 
-![5](https://user-images.githubusercontent.com/80393682/232350487-cf24a59a-6736-41f6-bd93-eb636d4faf14.PNG)
 
 ![1](https://user-images.githubusercontent.com/80393682/234694037-71959cf2-3867-4e53-9eeb-0a6264d4e60d.PNG)
 
@@ -37,7 +36,7 @@ Activité Pratique N°4 : Spring Security 6 avec Thymeleaf
 ![2](https://user-images.githubusercontent.com/80393682/234694058-ccdad9de-6231-45fb-87bb-4b21650e6a45.PNG)
 
 
-![7-user](https://user-images.githubusercontent.com/80393682/232350500-22c3947a-a00b-4193-b1a8-ec9617cf400b.PNG)
+
 
 ![8-user](https://user-images.githubusercontent.com/80393682/232350504-1295105a-53ea-4bcf-9181-ef8e97901271.PNG)
 
