@@ -15,16 +15,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
-@EnableMethodSecurity(prePostEnabled = true)
+@Configuration //indique que la classe est une configuration spring
+
+@EnableWebSecurity  // activer la securite web
+
+@EnableMethodSecurity(prePostEnabled = true) //activer la securite de la methode
 public class SecurityConfig {
 
-    @Autowired
+    @Autowired //auto dependances
     private PasswordEncoder passwordEncoder;
 
 
-   @Bean
+   @Bean //produit bean gere par spring
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
         return new InMemoryUserDetailsManager(
                 User.withUsername("user1").password(passwordEncoder.encode("1234")).roles("USER").build(),
@@ -37,9 +39,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)
             throws Exception {
-     httpSecurity.formLogin();
-     //.loginPage("/login").permitAll();
-//        httpSecurity.rememberMe();
+     //httpSecurity.formLogin();
+     httpSecurity.formLogin().loginPage("/login").permitAll();
+       httpSecurity.rememberMe();
         httpSecurity.authorizeHttpRequests().requestMatchers("/webjars/** "," /h2-console/**").permitAll();
         httpSecurity.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER");
         httpSecurity.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN");

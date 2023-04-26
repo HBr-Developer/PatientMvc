@@ -38,7 +38,7 @@ public class PatientController {
     }
 
     @GetMapping("/admin/delete")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String delete(Long id, String keyword, int page) {
 
         patientRepository.deleteById(id);
@@ -48,20 +48,20 @@ public class PatientController {
     public String home() {
         return "redirect:/user/index";
     }
-    @GetMapping("/patients")
-    @ResponseBody
+    @GetMapping("/user//patients")
+    @ResponseBody  //renvoie directememt le corps de la reponse http
     public List<Patient> lisPatients(){
         return patientRepository.findAll();
     }
 
     @GetMapping("/admin/formPatients")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+   @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String formPatients(Model model){
         model.addAttribute("patient",new Patient());
         return "formPatients";
     }
     @GetMapping("/admin/editPatients")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+   @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editPatients(Model model,Long id , String keyword, int page){
         Patient patient=patientRepository.findById(id).orElse(null);
         if(patient==null) throw new RuntimeException("Patient introuvable");
@@ -80,8 +80,6 @@ public class PatientController {
                        @RequestParam(defaultValue = "") String keyword) {
       if(bindingResult.hasErrors()) return "formPatients";
       patientRepository.save(patient);
-        return "redirect:/user/index?page="+page+"&keyword="+keyword;
+        return "redirect:/user/index"; //?page="+page+"&keyword="+keyword
     }
-
-
 }
